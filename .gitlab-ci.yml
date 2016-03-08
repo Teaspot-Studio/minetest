@@ -1,0 +1,10 @@
+stages:
+  - mirror
+
+push-mirror:
+  stage: mirror
+  script:
+    - git clone --mirror git@git.teaspotstudio.ru:aerospace/minetest.git
+    - cd minetest.git
+    - git push --mirror https://github.com/Teaspot-Studio/minetest-epsylon
+    - cd .. && rm -rf minetest.git
